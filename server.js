@@ -1,27 +1,24 @@
-const express = require('express')
-const http = require('http')
-const socketIO = require('socket.io')
+// Final version
+var httpServer = require('./src/Controllers/http'),
+wsServer = require('./src/Controllers/websocket'),
+models= require('./src/Models');
 
-const PORT = 4000
+// Internal Plugins
 
-const app = express()
+ //ledsPlugin = require('./plugins/internal/ledsPlugin'), //#A
+ // pirPlugin = require('./plugins/internal/pirPlugin'), //#A
+  //dhtPlugin = require('./plugins/internal/DHT22SensorPlugin'); //#A
 
-const server = http.createServer(app)
+// start simulação
+//pirPlugin.start({'simulate': true, 'frequency': 2000}); //#B
+//ledsPlugin.start({'simulate': true, 'frequency': 10000}); //#B
+//dhtPlugin.start({'simulate': true, 'frequency': 10000}); //#B
 
-//create the socket using the service instance
-const io = socketIO(server)
+// HTTP Server
+var server = httpServer.listen(models.pi.port, function () {
+  console.log('HTTP server started...');
 
-io.on('connection', socket => {
-    console.log('New user connected.')
+  wsServer.listen(server);
 
-    socket.on('infoEvent', (information) => {
-        console.log(`Information received: ${information}`)
-        io.sockets.emit('infoEvent', information)
-    })
-
-    socket.on('disconnect', () => {
-        console.log('User disconnected')
-    })
-})
-
-server.listen(PORT, () => console.log(`Listening server on port ${PORT}`))
+  console.info('Your WoT Pi is up and running on port %s', models.pi.port);
+});

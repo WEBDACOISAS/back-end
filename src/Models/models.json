@@ -1,0 +1,50 @@
+{
+  "pi": {
+    "name": "Domotica",
+    "description": "Domotica Server",
+    "port": 8080,
+    "sensors": {
+      "temperature": {
+        "name": "Temperature Sensor",
+        "url": "sensors/temperature",
+        "description": "An ambient temperature sensor.",
+        "unit": "celsius",
+        "value": 0,
+        "gpio": 12
+      },
+      "humidity": {
+        "name": "Humidity Sensor",
+        "url": "sensors/humidity",
+        "description": "An ambient humidity sensor.",
+        "unit": "%",
+        "value": 0,
+        "gpio": 12
+      },
+      "pir": {
+        "name": "Passive Infrared",
+        "url": "sensors/pir",
+        "description": "A passive infrared sensor. When 'true' someone is present.",
+        "value": true,
+        "gpio": 17
+      }
+    },
+    "atuator": {
+      "Luminaria": {
+        "1": {
+          "name": "luz1",
+          "value": false,
+          "local": "wifi"
+        },
+        "2": {
+          "name": "luz2",
+          "value": false,
+          "local": "wifi"
+        }
+      }
+    }
+  }
+}
+
+
+
+
