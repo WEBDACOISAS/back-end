@@ -1,9 +1,9 @@
 var express = require('express'),
-  atuatorRoutes = require('./../Routes/atuator'),
-  sensorRoutes = require('./../Routes/sensors'),
+  atuadorRoutes = require('./../Routes/atuador'),
+  sensorRoutes = require('./../Routes/sensor'),
 
-  //models = require('./../models/model'),
-  //converter = require('./../middleware/converter'),
+  //models = require('./../Models/model'),
+  converter = require('./../Middleware/converter'),
   cors = require('cors'),
   bodyParser = require('body-parser');
 
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.use('/pi/atuator', atuatorRoutes);
+app.use('/pi/atuador', atuadorRoutes);
 app.use('/pi/sensors', sensorRoutes);
 
 app.get('/pi', function (req, res) {
@@ -21,5 +21,5 @@ app.get('/pi', function (req, res) {
 });
 
 // For representation design
-//app.use(converter());
+app.use(converter());
 module.exports = app;

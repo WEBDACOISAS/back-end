@@ -1,24 +1,24 @@
 var express = require('express'),
   router = express.Router(),
-  models = require('./../Models/models.');
+  models = require('../Models/model');
 
 router.route('/').get(function (req, res, next) {
   req.result = models.pi.atuador;
   next();
 });
 
-router.route('/Luminaria').get(function (req, res, next) {
-  req.result = models.pi.atuador.Luminaria;
+router.route('/luminaria').get(function (req, res, next) {
+  req.result = models.pi.atuador.luminaria;
   next();
 });
 
-router.route('/Luminaria/:id').get(function (req, res, next) { //#A
-  req.result = models.pi.atuador.Luminaria[req.params.id];
+router.route('/luminaria/:id').get(function (req, res, next) { //#A
+  req.result = models.pi.atuador.luminaria[req.params.id];
   next();
 }).put(function(req, res, next) { 
-  var selectedLed = models.pi.atuador.Luminaria[req.params.id];
-  selectedLed.value = req.body.value; 
-  req.result = selectedLed;
+  var selectedluminaria = models.pi.atuador.luminaria[req.params.id];
+  selectedluminaria.value = req.body.value; 
+  req.result = selectedluminaria;
   next();
 });
 

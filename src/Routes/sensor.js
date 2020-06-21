@@ -1,6 +1,6 @@
 var express = require('express'),
   router = express.Router(),
-  models = require('./../Models');
+  models = require('../Models/model');
 
 router.route('/').get(function (req, res, next) {
   req.result = models.pi.actuators;

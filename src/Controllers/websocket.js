@@ -1,5 +1,5 @@
 var WebSocketServer = require('ws').Server,
-models = require('./../Models');
+models = require('../Models/model');
 
 exports.listen = function(server) {
   var wss = new WebSocketServer({server: server}); 

@@ -28,8 +28,8 @@
         "gpio": 17
       }
     },
-    "atuator": {
-      "Luminaria": {
+    "atuador": {
+      "luminaria": {
         "1": {
           "name": "luz1",
           "value": false,
