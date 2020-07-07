@@ -1,50 +1,91 @@
 {
-  "pi": {
-    "name": "Domotica",
-    "description": "Domotica Server",
-    "port": 8080,
-    "sensors": {
-      "temperature": {
-        "name": "Temperature Sensor",
-        "url": "sensors/temperature",
-        "description": "An ambient temperature sensor.",
-        "unit": "celsius",
-        "value": 0,
-        "gpio": 12
-      },
-      "humidity": {
-        "name": "Humidity Sensor",
-        "url": "sensors/humidity",
-        "description": "An ambient humidity sensor.",
-        "unit": "%",
-        "value": 0,
-        "gpio": 12
-      },
-      "pir": {
-        "name": "Passive Infrared",
-        "url": "sensors/pir",
-        "description": "A passive infrared sensor. When 'true' someone is present.",
-        "value": true,
-        "gpio": 17
-      }
-    },
-    "atuador": {
-      "luminaria": {
-        "1": {
-          "name": "luz1",
-          "value": false,
-          "local": "wifi"
+  "pi":{
+     "name":"Domotica",
+     "Description":"Domotica Server",
+     "port":4000,
+     "cliente":{
+        "1":{
+           "name":"Raul",
+           "email":"raul@gmail.com",
+           "password":"carvalho1",
+           "Auto":"adm"
         },
-        "2": {
-          "name": "luz2",
-          "value": false,
-          "local": "wifi"
+        "2":{
+           "name":"manutencao",
+           "E-mail":"manutencao@gmail.com",
+           "password":"manutencao1",
+           "Auto":"manutencao"
+        },
+        "3":{
+           "name":"familiacarvalho",
+           "E-mail":"familia@gmail.com",
+           "password":"carvalho2020",
+           "Auto":"usuario"
         }
-      }
-    }
+     },
+     "casa":{
+        "name":"Cavalho",
+        "ID":"1",
+        "comodo":{
+           "A_S":{
+              "ID":"1",
+              "ESP-32":{
+                 "ID":"1",
+                 "sensors":{
+                    "temp":{
+                       "name":"Temperature Sensor",
+                       "url":"sensors/temperature",
+                       "description":"Sensor temperatura do Ambiente",
+                       "unit":"celsius",
+                       "value":0,
+                       "gpio":12
+                    },
+                    "humid":{
+                       "name":"Humidity Sensor",
+                       "url":"sensors/humidity",
+                       "description":"Sensor de Humidade do Ambiente.",
+                       "unit":"%",
+                       "value":0,
+                       "gpio":12
+                    }
+                 },
+                 "atuador":{
+                    "luminaria":{
+                       "1":{
+                          "name":"luz1",
+                          "value":false
+                       },
+                       "2":{
+                          "name":"luz2",
+                          "value":false,
+                          "local":"wifi"
+                       }
+                    }
+                 }
+              }
+           },
+           "Cozinha":{
+              "ID":"2"
+           },
+           "Quarto_F1":{
+              "ID":"3"
+           },
+           "Quarto_F2":{
+              "ID":"4"
+           },
+           "Quarto_M":{
+              "ID":"5"
+           },
+           "Sala-Estar":{
+              "ID":"6"
+           },
+           "Sala-Jantar":{
+              "ID":"7"
+           },
+           "Varanda":{
+              "ID":"8"
+           }
+        }
+     }
   }
 }
-
-
-
-
